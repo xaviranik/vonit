@@ -17,6 +17,7 @@
                                     <ul>
                                         @foreach ($category->subcategories as $subcategory)
                                         <li><a href="#">{{ $subcategory->name }}</a></li>
+                                        <hr>
                                         @endforeach
                                     </ul>
                                 </li>
