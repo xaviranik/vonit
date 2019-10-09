@@ -5,13 +5,13 @@
         </div>
         <ul class="list-group list-group-flush channel-sidebar">
             <li class="list-group-item">
-                <a href="{{ route('category.index') }}">Manage Category</a>
+                <a href="{{ route('category.index') }}">Category</a>
             </li>
             <li class="list-group-item">
-                <a href="#">Manage Sub Category</a>
+                <a href="{{ route('subcategory.index') }}">Sub Category</a>
             </li>
             <li class="list-group-item">
-                <a href="#">Manage Product</a>
+                <a href="#">Manage Products</a>
             </li>
         </ul>
     </div>
