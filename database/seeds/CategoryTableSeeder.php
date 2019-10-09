@@ -22,7 +22,7 @@ class CategoryTableSeeder extends Seeder
             'name' => 'SSD',
         ];
         $category_4 = [
-            'name' => 'Laptop RAMS',
+            'name' => 'Laptop Rams',
         ];
 
         Category::create($category_1);

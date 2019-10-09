@@ -11,50 +11,21 @@
                         </div>
                         <nav class="main_nav">
                             <ul>
-                                <li class="hassubs">
-                                    <a href="#">Laptops</a>
+                                @foreach ($categories as $category)
+                                <li class="{{ count($category->subcategories) > 0 ? 'hassubs' : '' }}">
+                                    <a href="#">{{ $category->name }}</a>
                                     <ul>
-                                        <li><a href="#">Asus</a></li>
-                                        <li><a href="#">Dell</a></li>
-                                        <li><a href="#">HP</a></li>
-                                        <li><a href="#">Razer</a></li>
+                                        @foreach ($category->subcategories as $subcategory)
+                                        <li><a href="#">{{ $subcategory->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
-                                <li class="hassubs">
-                                    <a href="#">Motherboards</a>
-                                    <ul>
-                                        <li><a href="#">Asus</a></li>
-                                        <li><a href="#">Dell</a></li>
-                                        <li><a href="#">HP</a></li>
-                                        <li><a href="#">Razer</a></li>
-                                    </ul>
-                                </li>
-                                <li class="hassubs">
-                                    <a href="#">SSD</a>
-                                    <ul>
-                                        <li><a href="#">Asus</a></li>
-                                        <li><a href="#">Dell</a></li>
-                                        <li><a href="#">HP</a></li>
-                                        <li><a href="#">Razer</a></li>
-                                    </ul>
-                                </li>
-                                <li class="hassubs">
-                                    <a href="#">Laptop RAM</a>
-                                    <ul>
-                                        <li><a href="#">Asus</a></li>
-                                        <li><a href="#">Dell</a></li>
-                                        <li><a href="#">HP</a></li>
-                                        <li><a href="#">Razer</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#">More</a>
-                                </li>
+                                @endforeach
                             </ul>
                         </nav>
                         <div class="header_extra ml-auto">
                             <div class="shopping_cart">
-                                <a href="cart.html">
+                                <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489 489">
                                         <path
                                             d="M440.1 422.7l-28-315.3c-.6-7-6.5-12.3-13.4-12.3h-57.6C340.3 42.5 297.3 0 244.5 0s-95.8 42.5-96.6 95.1H90.3c-7 0-12.8 5.3-13.4 12.3l-28 315.3c0 .4-.1.8-.1 1.2 0 35.9 32.9 65.1 73.4 65.1h244.6c40.5 0 73.4-29.2 73.4-65.1 0-.4 0-.8-.1-1.2zM244.5 27c37.9 0 68.8 30.4 69.6 68.1H174.9c.8-37.7 31.7-68.1 69.6-68.1zm122.3 435H122.2c-25.4 0-46-16.8-46.4-37.5l26.8-302.3h45.2v41c0 7.5 6 13.5 13.5 13.5s13.5-6 13.5-13.5v-41h139.3v41c0 7.5 6 13.5 13.5 13.5s13.5-6 13.5-13.5v-41h45.2l26.9 302.3c-.4 20.7-21.1 37.5-46.4 37.5z" />
@@ -92,15 +63,7 @@
             </div>
         </div>
     </div>
-    <!-- Social -->
-    <div class="header_social">
-        <ul>
-            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        </ul>
-    </div>
+
 </header>
 <!-- Menu -->
 <div class="menu menu_mm trans_300">
@@ -114,68 +77,18 @@
                 </form>
             </div>
             <ul class="page_menu_nav menu_mm">
-                <li class="page_menu_item has-children menu_mm">
-                    <a href="#">Laptops<i class="fa fa-angle-down"></i></a>
+                @foreach ($categories as $category)
+                    <li class="page_menu_item has-children menu_mm">
+                    <a href="#">{{ $category->name }}<i class="fa fa-angle-down"></i></a>
                     <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="#">Asus<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Dell<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">HP<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Razer<i class="fa fa-angle-down"></i></a>
-                        </li>
+                        @foreach ($category->subcategories as $subcategory)
+                            <li class="page_menu_item menu_mm"><a href="#">{{ $subcategory->name }}<i class="fa fa-angle-down"></i></a></li>
+                        @endforeach
                     </ul>
                 </li>
-                <li class="page_menu_item has-children menu_mm">
-                    <a href="#">Motherboards<i class="fa fa-angle-down"></i></a>
-                    <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="#">Asus<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Dell<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">HP<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Razer<i class="fa fa-angle-down"></i></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="page_menu_item has-children menu_mm">
-                    <a href="#">SSD<i class="fa fa-angle-down"></i></a>
-                    <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="#">Asus<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Dell<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">HP<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Razer<i class="fa fa-angle-down"></i></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="page_menu_item has-children menu_mm">
-                    <a href="#">Laptop RAM<i class="fa fa-angle-down"></i></a>
-                    <ul class="page_menu_selection menu_mm">
-                        <li class="page_menu_item menu_mm"><a href="#">Asus<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Dell<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">HP<i class="fa fa-angle-down"></i></a>
-                        </li>
-                        <li class="page_menu_item menu_mm"><a href="">Razer<i class="fa fa-angle-down"></i></a>
-                        </li>
-                    </ul>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>
     <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-    <div class="menu_social">
-        <ul>
-            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        </ul>
-    </div>
 </div>
