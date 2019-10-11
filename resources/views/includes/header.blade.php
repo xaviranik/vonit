@@ -83,7 +83,7 @@
                     <a href="#">{{ $category->name }}<i class="fa fa-angle-down"></i></a>
                     <ul class="page_menu_selection menu_mm">
                         @foreach ($category->subcategories as $subcategory)
-                            <li class="page_menu_item menu_mm"><a href="#">{{ $subcategory->name }}<i class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item menu_mm"><a href="{{ route('product.show.category', ['subcategory' => $subcategory]) }}">{{ $subcategory->name }}<i class="fa fa-angle-down"></i></a></li>
                         @endforeach
                     </ul>
                 </li>
