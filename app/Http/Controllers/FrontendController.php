@@ -16,4 +16,9 @@ class FrontendController extends Controller
         $subcategories = SubCategory::with('category')->take(3)->get();
         return view('welcome', compact('latest_products', 'subcategories'));
     }
+
+    public function showByCategory(SubCategory $subcategory)
+    {
+        return view('product_by_category', compact('subcategory'));
+    }
 }

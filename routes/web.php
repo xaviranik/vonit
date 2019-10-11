@@ -15,7 +15,8 @@ Route::get('/', 'FrontendController@index');
 
 Auth::routes(['register' => false]);
 
-Route::get('product/{product}', 'ProductController@show')->name('product.show');
+Route::get('show-product/{product}', 'ProductController@show')->name('product.show');
+Route::get('show-category/{subcategory}', 'FrontendController@showByCategory')->name('product.show.category');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@index')->name('home');

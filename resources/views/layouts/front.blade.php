@@ -34,6 +34,7 @@
     <script src="{{ asset('theme/plugins/easing/easing.js') }}"></script>
     <script src="{{ asset('theme/plugins/parallax-js-master/parallax.min.js') }}"></script>
     <script src="{{ asset('theme/plugins/greensock/TweenMax.min.js') }}"></script>
+    <script src="{{ asset('theme/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('theme/js/custom.js') }}"></script>
     @yield('script')
 </body>

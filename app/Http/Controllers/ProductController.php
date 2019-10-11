@@ -107,7 +107,8 @@ class ProductController extends Controller
             'price' => 'required|numeric'
         ]);
 
-        if ($files = $request->file('image')) {
+        if ($files = $request->file('image')) 
+        {
             $this->validate($request, [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
@@ -119,13 +120,13 @@ class ProductController extends Controller
             $destinationPath = public_path('/img/');
             $productImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
             $files->move($destinationPath, $productImage);
+            $product->image = $productImage;
         }
 
         $product->name = $request->name;
         $product->subcategory_id = $request->subcategory;
         $product->description = $request->description;
         $product->price = $request->price;
-        $product->image = $productImage;
         
 
         $product->save();
@@ -142,6 +143,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $oldProductImage = public_path("img/{$product->image}");
+        if (File::exists($oldProductImage)) 
+        {
+            unlink(public_path('/img/') . $product->image);
+        }
         $product->delete();
         Session::flash('success', 'Product deleted successfully!');
         return redirect()->route('product.index');
