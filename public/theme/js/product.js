@@ -258,27 +258,6 @@ $(document).ready(function()
 				{
 					gutter: 30
 				},
-	            getSortData:
-	            {
-	            	price: function(itemElement)
-	            	{
-	            		var priceEle = $(itemElement).find('.product_price').text().replace( '$', '' );
-	            		return parseFloat(priceEle);
-	            	},
-	            	name: '.product_name',
-	            	stars: function(itemElement)
-	            	{
-	            		var starsEle = $(itemElement).find('.rating');
-	            		var stars = starsEle.attr("data-rating");
-	            		return stars;
-	            	}
-	            },
-	            animationOptions:
-	            {
-	                duration: 750,
-	                easing: 'linear',
-	                queue: false
-	            }
 	        });
 		}
 	}

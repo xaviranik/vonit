@@ -101,9 +101,9 @@
             <div class="col">
                 <h2>Latest Products</h2>
                 <hr>
-                <div class="product_grid">
+                <div class="row">
                     <!-- Product -->
-                    <div class="product">
+                    <div class="product col-md-3">
                         <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
                         <div class="product_extra product_new"><a href="categories.html">New</a></div>
                         <div class="product_content">
@@ -111,7 +111,23 @@
                             <div class="product_price">$670</div>
                         </div>
                     </div>
-                    <div class="product">
+                    <div class="product col-md-3">
+                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
+                        <div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
+                        <div class="product_content">
+                            <div class="product_title"><a href="product.html">Smart Phone</a></div>
+                            <div class="product_price">$670</div>
+                        </div>
+                    </div>
+                    <div class="product col-md-3">
+                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
+                        <div class="product_extra product_new"><a href="categories.html">New</a></div>
+                        <div class="product_content">
+                            <div class="product_title"><a href="product.html">Smart Phone</a></div>
+                            <div class="product_price">$670</div>
+                        </div>
+                    </div>
+                    <div class="product col-md-3">
                         <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
                         <div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
                         <div class="product_content">
