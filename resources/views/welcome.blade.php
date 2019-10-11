@@ -103,38 +103,18 @@
                 <hr>
                 <div class="row">
                     <!-- Product -->
+                    @forelse ($latest_products as $product)
                     <div class="product col-md-3">
                         <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
                         <div class="product_extra product_new"><a href="categories.html">New</a></div>
                         <div class="product_content">
-                            <div class="product_title"><a href="product.html">Smart Phone</a></div>
-                            <div class="product_price">$670</div>
+                            <div class="product_title"><a href="product.html">{{ $product->name }}</a></div>
+                            <div class="product_price">BDT. {{ $product->price }}</div>
                         </div>
                     </div>
-                    <div class="product col-md-3">
-                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
-                        <div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
-                        <div class="product_content">
-                            <div class="product_title"><a href="product.html">Smart Phone</a></div>
-                            <div class="product_price">$670</div>
-                        </div>
-                    </div>
-                    <div class="product col-md-3">
-                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
-                        <div class="product_extra product_new"><a href="categories.html">New</a></div>
-                        <div class="product_content">
-                            <div class="product_title"><a href="product.html">Smart Phone</a></div>
-                            <div class="product_price">$670</div>
-                        </div>
-                    </div>
-                    <div class="product col-md-3">
-                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
-                        <div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
-                        <div class="product_content">
-                            <div class="product_title"><a href="product.html">Smart Phone</a></div>
-                            <div class="product_price">$670</div>
-                        </div>
-                    </div>
+                    @empty
+
+                    @endforelse
                 </div>
             </div>
         </div>
