@@ -11,7 +11,7 @@
                 <a href="{{ route('subcategory.index') }}">Sub Category</a>
             </li>
             <li class="list-group-item">
-                <a href="#">Manage Products</a>
+                <a href="{{ route('product.index') }}">Manage Products</a>
             </li>
         </ul>
     </div>

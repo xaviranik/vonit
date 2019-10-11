@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
+use App\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class ProductController extends Controller
 {
@@ -14,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::with('subcategory')->get();
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -24,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $subcategories = SubCategory::with('category')->get();
+        return view('admin.product.create', compact('subcategories'));
     }
 
     /**
@@ -35,7 +41,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'subcategory' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric'
+        ]);
+
+        Product::create([
+            'name' => $request->name,
+            'subcategory_id' => $request->subcategory,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]);
+
+        Session::flash('success', 'Product created successfully!');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -57,7 +78,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $subcategories = SubCategory::all();
+        return view('admin.product.edit', compact('product', 'subcategories'));
     }
 
     /**
@@ -69,7 +91,22 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'subcategory' => 'required',
+            'description' => 'required',
+            'price' => 'required|numeric'
+        ]);
+
+        $product->name = $request->name;
+        $product->subcategory_id = $request->subcategory;
+        $product->description = $request->description;
+        $product->price = $request->price;
+
+        $product->save();
+
+        Session::flash('success', 'Product updated successfully!');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -80,6 +117,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        Session::flash('success', 'Product deleted successfully!');
+        return redirect()->route('product.index');
     }
 }
