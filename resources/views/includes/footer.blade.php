@@ -6,7 +6,7 @@
             <div class="col">
                 <div
                     class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-                    <div class="footer_logo"><a href="#">Vonit</a></div>
+                    <div class="footer_logo"><a href="#"><img src="{{ asset('static/logo.svg') }}" height="32" alt=""></a></div>
                     <div class="copyright ml-auto mr-auto">
                         Copyright &copy;<script>
                             document.write(new Date().getFullYear());
