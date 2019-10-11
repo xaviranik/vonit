@@ -13,7 +13,7 @@
                 <div class="card-header">Update Product: {{ $product->name }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('product.update', ['product' => $product]) }}" method="POST">
+                    <form action="{{ route('product.update', ['product' => $product]) }}" method="POST" enctype="multipart/form-data">
                         <input name="_method" type="hidden" value="put">
                         @csrf
                         <div class="form-group">
@@ -39,7 +39,13 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="text-center">
+                            <label for="image" name="image">Product Image</label>
+                            <input type="file" class="form-control-file" id="image" name="image">
+                        </div>
+                        <img src="{{ $product->ProductImage }}" class="rounded" height="120" alt="{{ $product->name }}">
+
+                        <div class="form-group">
+                            <div class="text-center mt-4">
                                 <button class="btn btn-success" type="submit">Update Product</button>
                             </div>
                         </div>

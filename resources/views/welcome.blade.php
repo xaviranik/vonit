@@ -105,7 +105,7 @@
                     <!-- Product -->
                     @forelse ($latest_products as $product)
                     <div class="product col-md-3">
-                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
+                        <div class="product_image"><img src="{{ $product->ProductImage }}" alt=""></div>
                         <div class="product_extra product_new"><a href="categories.html">New</a></div>
                         <div class="product_content">
                             <div class="product_title"><a href="product.html">{{ $product->name }}</a></div>
@@ -150,7 +150,7 @@
                     <!-- Product -->
                     @forelse ($subcategory->products as $product)
                     <div class="product col-md-3">
-                        <div class="product_image"><img src="https://via.placeholder.com/690" alt=""></div>
+                        <div class="product_image"><img src="{{ $product->ProductImage }}" alt=""></div>
                         <div class="product_extra product_new"><a href="categories.html">New</a></div>
                         <div class="product_content">
                             <div class="product_title"><a href="product.html">{{ $product->name }}</a></div>
@@ -168,6 +168,25 @@
 @empty
 
 @endforelse
+<!-- Ad -->
+<div class="avds_xl">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="avds_xl_container clearfix">
+                    <div class="avds_xl_background" style="background-image:url(theme/images/avds_xl.jpg)">
+                    </div>
+                    <div class="avds_xl_content">
+                        <div class="avds_title">Amazing Devices</div>
+                        <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
+                            ultricies metus.</div>
+                        <div class="avds_link avds_xl_link"><a href="categories.html">See More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Icon Boxes -->
 <div class="icon_boxes">
     <div class="container">

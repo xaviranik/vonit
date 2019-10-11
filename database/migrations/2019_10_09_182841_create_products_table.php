@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('price');
+            $table->string('image');
             $table->timestamps();
 
             $table->foreign('subcategory_id')

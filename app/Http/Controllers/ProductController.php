@@ -7,6 +7,7 @@ use App\Product;
 use App\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use File;
 
 
 class ProductController extends Controller
@@ -45,14 +46,22 @@ class ProductController extends Controller
             'name' => 'required|max:255',
             'subcategory' => 'required',
             'description' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if ($files = $request->file('image')) {
+            $destinationPath = public_path('/img/'); // upload path
+            $productImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $productImage);
+        }
 
         Product::create([
             'name' => $request->name,
             'subcategory_id' => $request->subcategory,
             'description' => $request->description,
             'price' => $request->price,
+            'image' => $productImage,
         ]);
 
         Session::flash('success', 'Product created successfully!');
@@ -98,10 +107,26 @@ class ProductController extends Controller
             'price' => 'required|numeric'
         ]);
 
+        if ($files = $request->file('image')) {
+            $this->validate($request, [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+            $oldProductImage = public_path("img/{$product->image}");
+            if (File::exists($oldProductImage))
+            {
+                unlink(public_path('/img/') . $product->image);
+            }
+            $destinationPath = public_path('/img/');
+            $productImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $productImage);
+        }
+
         $product->name = $request->name;
         $product->subcategory_id = $request->subcategory;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->image = $productImage;
+        
 
         $product->save();
 
