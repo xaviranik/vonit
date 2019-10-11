@@ -108,7 +108,7 @@
                         <div class="product_image"><img src="{{ $product->ProductImage }}" alt=""></div>
                         <div class="product_extra product_new"><a href="categories.html">New</a></div>
                         <div class="product_content">
-                            <div class="product_title"><a href="product.html">{{ $product->name }}</a></div>
+                            <div class="product_title"><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->name }}</a></div>
                             <div class="product_price">BDT. {{ $product->price }}</div>
                         </div>
                     </div>
@@ -151,9 +151,9 @@
                     @forelse ($subcategory->products as $product)
                     <div class="product col-md-3">
                         <div class="product_image"><img src="{{ $product->ProductImage }}" alt=""></div>
-                        <div class="product_extra product_new"><a href="categories.html">New</a></div>
+                        <div class="product_extra product_new"><a href="#">New</a></div>
                         <div class="product_content">
-                            <div class="product_title"><a href="product.html">{{ $product->name }}</a></div>
+                            <div class="product_title"><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->name }}</a></div>
                             <div class="product_price">BDT. {{ $product->price }}</div>
                         </div>
                     </div>

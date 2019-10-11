@@ -3,10 +3,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @include('admin.includes.sidebar')
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9">
                 @include('admin.includes.errors')
 
                 <div class="card">

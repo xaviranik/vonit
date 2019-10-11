@@ -1,7 +1,7 @@
 <div id="sidebar">
     <div class="card shadow-sm mb-2">
         <div class="card-header bg-light font-weight-light">
-            Explore
+            Manage Shop
         </div>
         <ul class="list-group list-group-flush channel-sidebar">
             <li class="list-group-item">
