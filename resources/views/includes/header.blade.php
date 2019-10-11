@@ -5,7 +5,7 @@
                 <div class="col">
                     <div class="header_content d-flex flex-row align-items-center justify-content-start">
                         <div class="logo">
-                            <a href="#">
+                            <a href="/">
                                 <img src="{{ asset('static/logo.svg') }}" alt="logo" height="48">
                             </a>
                         </div>

@@ -106,7 +106,7 @@
                     @forelse ($latest_products as $product)
                     <div class="product col-md-3">
                         <div class="product_image"><img src="{{ $product->ProductImage }}" alt=""></div>
-                        <div class="product_extra product_new"><a href="categories.html">New</a></div>
+                        <div class="product_extra product_new"><a href="#">New</a></div>
                         <div class="product_content">
                             <div class="product_title"><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->name }}</a></div>
                             <div class="product_price">BDT. {{ $product->price }}</div>
@@ -126,13 +126,12 @@
         <div class="row">
             <div class="col">
                 <div class="avds_xl_container clearfix">
-                    <div class="avds_xl_background" style="background-image:url(theme/images/avds_xl.jpg)">
+                    <div class="avds_xl_background" style="background-image:url({{ asset('theme/images/ad_1.jpg') }})">
                     </div>
                     <div class="avds_xl_content">
-                        <div class="avds_title">Amazing Devices</div>
-                        <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
-                            ultricies metus.</div>
-                        <div class="avds_link avds_xl_link"><a href="categories.html">See More</a></div>
+                        <div class="avds_title">Awesome Deals!</div>
+                        <div class="avds_text">Stay with Vonit Technology and enjoy Awesome Deals Everyday!</div>
+                        <div class="avds_link avds_xl_link"><a href="#">See More</a></div>
                     </div>
                 </div>
             </div>
@@ -174,13 +173,12 @@
         <div class="row">
             <div class="col">
                 <div class="avds_xl_container clearfix">
-                    <div class="avds_xl_background" style="background-image:url(theme/images/avds_xl.jpg)">
+                    <div class="avds_xl_background" style="background-image:url({{ asset('theme/images/ad_2.jpg') }})">
                     </div>
                     <div class="avds_xl_content">
-                        <div class="avds_title">Amazing Devices</div>
-                        <div class="avds_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a
-                            ultricies metus.</div>
-                        <div class="avds_link avds_xl_link"><a href="categories.html">See More</a></div>
+                        <div class="avds_title">Laptops & Gadgets</div>
+                        <div class="avds_text">Buy Laptop & Gadgets at discount rate!</div>
+                        <div class="avds_link avds_xl_link"><a href="#">See More</a></div>
                     </div>
                 </div>
             </div>
